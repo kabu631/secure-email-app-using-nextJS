@@ -1,0 +1,137 @@
+ Secure Email Application
+
+A modern web-based secure email application with encryption features built with Next.js and React.
+
+ Features
+
+- User authentication with email and password
+- Secure email sending and receiving
+- CC functionality for multiple recipients
+- End-to-end encryption option for sensitive messages
+- Dark/Light mode theming
+- Mobile-responsive design
+- Folder management (Inbox, Sent, Drafts, Trash, Spam)
+
+ Installation
+
+ Prerequisites
+
+- Node.js 18.x or higher
+- npm or yarn package manager
+
+ Setup Steps
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/secure-email-app.git
+   cd secure-email-app
+   ```
+
+2. Install dependencies:
+   ```
+   npm install
+    or
+   yarn install
+   ```
+
+3. Run the development server:
+   ```
+   npm run dev
+    or
+   yarn dev
+   ```
+
+4. Open your browser and navigate to:
+   ```
+   http://localhost:3000
+   ```
+
+ Demo Accounts
+
+You can use any of these pre-configured accounts to test the application:
+
+1. Demo User
+   - Email: demo@example.com
+   - Password: secure123
+
+2. User One
+   - Email: user1@example.com
+   - Password: secure123
+
+3. User Two
+   - Email: user2@example.com
+   - Password: secure123
+
+ Usage Guide
+
+1. Login/Registration:
+   - Use one of the demo accounts or create your own account through the signup page
+   - Navigate to the signup page by clicking "Sign up" on the login screen
+
+2. Reading Emails:
+   - Click on any email in your inbox to view its contents
+   - Use the folder sidebar to navigate between different email folders
+
+3. Sending Emails:
+   - Click the "Compose New Email" button to create a new message
+   - Add recipients in the "To" field (multiple emails can be separated by commas)
+   - Add CC recipients if needed
+   - Write your subject and message
+   - Toggle encryption if you want to send a secure message
+   - Click "Send Email" to deliver your message
+
+4. Theme Toggle:
+   - Click the sun/moon icon in the header to toggle between light and dark themes
+
+ Development Information
+
+This application is built with:
+- Next.js 14 with App Router
+- React 18
+- NextAuth.js for authentication
+- TailwindCSS for styling
+- TypeScript for type safety
+
+ Security and Cryptography Algorithms
+
+This application implements the following cryptographic algorithms:
+
+1. Symmetric Encryption:
+   - Algorithm: AES-256-CBC
+   - Library: CryptoJS
+   - Purpose: Encrypts email content and attachments
+   - Features: Uses 256-bit keys with Cipher Block Chaining mode and PKCS7 padding
+
+2. Asymmetric Encryption:
+   - Algorithm: RSA
+   - Purpose: Public/private key encryption for key exchange
+   - Implementation: Simplified demonstration using CryptoJS
+   - Note: A production application would use WebCrypto API or a dedicated RSA library
+
+3. Digital Signatures:
+   - Algorithm: HMAC-SHA256
+   - Purpose: Verifies sender authenticity and message integrity
+   - Implementation: Creates and verifies signatures using sender's keys
+
+4. Password Storage:
+   - Algorithm: bcrypt
+   - Purpose: Securely hashes user passwords before storage
+   - Features: Includes salting to prevent rainbow table attacks
+
+The application uses a hybrid cryptographic approach:
+- The main message content is encrypted with a randomly generated AES key
+- This AES key is then encrypted with the recipient's public RSA key
+- Only recipients with the corresponding private key can decrypt the AES key and read the message
+- Digital signatures ensure the email hasn't been tampered with during transmission
+
+ Security Notes
+
+For demonstration purposes, this application uses an in-memory storage system. In a production environment, you would want to:
+- Use a proper database for persistent storage
+- Implement proper cryptographic key management
+- Set up HTTPS for all communication
+- Add additional security measures like rate limiting and CSRF protection
+
+ License
+
+This project is licensed under the GIT License - see the LICENSE file for details. 
