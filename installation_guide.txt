@@ -134,4 +134,4 @@ For demonstration purposes, this application uses an in-memory storage system. I
 
  License
 
-This project is licensed under the GIT License - see the LICENSE file for details. 
+This project is licensed under the MIT License - see the LICENSE file for details. 
