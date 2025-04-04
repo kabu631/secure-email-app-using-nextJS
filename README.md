@@ -1,132 +1,147 @@
 # Secure Email Application
 
-<p align="center">
-  <img src="public/logo.png" alt="Secure Email Logo" width="120">
-</p>
+**Overview**
 
-A modern web-based secure email application with encryption features built with Next.js and React.
+The Secure Email Application is a modern web-based email platform designed to ensure the privacy and security of user communications. Developed using Next.js and React, it incorporates robust encryption features and user-friendly functionality.
 
-![Application Screenshot](public/screenshot.png)
+---
 
-## ✨ Features
+## Features
 
-- 🔐 User authentication with email and password
-- 📧 Secure email sending and receiving
-- 👥 CC functionality for multiple recipients
-- 🔒 End-to-end encryption option for sensitive messages
-- 🌓 Dark/Light mode theming with smooth transitions
-- 📱 Mobile-responsive design
-- 📁 Folder management (Inbox, Sent, Drafts, Trash, Spam)
+- Secure user authentication via email and password
+- Confidential email transmission and reception
+- CC support for multiple recipients
+- Optional end-to-end encryption for sensitive communications
+- Light and dark theme modes with seamless transitions
+- Responsive design compatible with mobile devices
+- Email folder management including Inbox, Sent, Drafts, Trash, and Spam
 
-## 🚀 Installation
+---
+
+## Installation Guide
 
 ### Prerequisites
 
-- Node.js 18.x or higher
+To install and run the application locally, ensure the following software is installed:
+
+- Node.js version 18.x or higher
 - npm or yarn package manager
 
-### Setup Steps
+### Setup Instructions
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/yourusername/secure-email-app.git
    cd secure-email-app
    ```
 
-2. Install dependencies:
+2. Install project dependencies:
+
    ```bash
    npm install
    # or
    yarn install
    ```
 
-3. Run the development server:
+3. Launch the development server:
+
    ```bash
    npm run dev
    # or
    yarn dev
    ```
 
-4. Open your browser and navigate to:
+4. Access the application via your web browser:
+
    ```
    http://localhost:3000
    ```
 
-## 👤 Demo Accounts
+---
 
-You can use any of these pre-configured accounts to test the application:
+## Demo Accounts
 
-| Account | Email | Password |
-|---------|-------|----------|
-| Demo User | demo@example.com | secure123 |
-| User One | user1@example.com | secure123 |
-| User Two | user2@example.com | secure123 |
+The following pre-configured demo accounts are available for testing purposes:
 
-## 📝 Usage Guide
+| Account Name | Email Address        | Password   |
+|--------------|----------------------|------------|
+| Demo User    | demo@example.com     | secure123  |
+| User One     | user1@example.com    | secure123  |
+| User Two     | user2@example.com    | secure123  |
 
-### Login/Registration
-- Use one of the demo accounts or create your own account through the signup page
-- Navigate to the signup page by clicking "Sign up" on the login screen
+---
 
-### Reading Emails
-- Click on any email in your inbox to view its contents
-- Use the folder sidebar to navigate between different email folders
+## User Guide
 
-### Sending Emails
-- Click the "Compose New Email" button to create a new message
-- Add recipients in the "To" field (multiple emails can be separated by commas)
-- Add CC recipients if needed
-- Write your subject and message
-- Toggle encryption if you want to send a secure message
-- Click "Send Email" to deliver your message
+### Account Access
 
-### Theme Toggle
-- Click the sun/moon icon in the header to toggle between light and dark themes
+- Users may log in using demo credentials or register through the sign-up interface.
+- The registration link is available on the login page.
 
-## 🛠️ Development Information
+### Viewing Emails
 
-This application is built with:
+- Emails can be read by selecting them from the Inbox.
+- Users can navigate between folders using the sidebar.
 
-| Technology | Purpose |
-|------------|---------|
-| Next.js 14 | React framework with App Router |
-| React 18 | UI library |
-| NextAuth.js | Authentication |
-| TailwindCSS | Styling |
-| TypeScript | Type safety |
+### Composing Emails
 
-## 🔐 Security and Cryptography Algorithms
+- Select "Compose New Email" to draft a message.
+- Enter recipient addresses in the "To" field (separated by commas for multiple recipients).
+- Optionally add CC addresses.
+- Provide a subject and compose the message body.
+- Enable encryption for secure transmission if desired.
+- Click "Send Email" to dispatch the message.
 
-This application implements several cryptographic algorithms to ensure secure email communication:
+### Theme Customization
 
-| Algorithm | Purpose | Implementation |
-|-----------|---------|----------------|
-| AES-256-CBC | Symmetric encryption for email content | Uses CryptoJS for AES encryption with CBC mode and PKCS7 padding |
-| RSA | Asymmetric encryption for key exchange | Simplified implementation using CryptoJS (in production, would use WebCrypto API) |
-| HMAC-SHA256 | Digital signatures | Used to verify email authenticity |
-| bcrypt | Password hashing | Securely stores user passwords with salt |
+- Use the theme toggle button located in the header to switch between light and dark modes.
 
-The application follows a hybrid encryption model:
-1. Email content is encrypted with AES (symmetric encryption)
-2. The AES key is encrypted with the recipient's RSA public key (asymmetric encryption)
-3. Digital signatures are created using HMAC-SHA256 to verify sender authenticity
+---
 
-## 🔒 Security Notes
+## Development Stack
 
-For demonstration purposes, this application uses an in-memory storage system. In a production environment, you would want to:
-- Use a proper database for persistent storage
-- Implement proper cryptographic key management
-- Set up HTTPS for all communication
-- Add additional security measures like rate limiting and CSRF protection
+The application has been developed using the following technologies:
 
-## 📱 Screenshots
+| Technology   | Function                          |
+|--------------|-----------------------------------|
+| Next.js 14   | React-based web development       |
+| React 18     | Front-end user interface library  |
+| NextAuth.js  | Authentication and session management |
+| TailwindCSS  | Styling and UI design framework   |
+| TypeScript   | Type-safe JavaScript programming  |
 
-<p align="center">
-  <img src="public/login-screen.png" alt="Login Screen" width="250">
-  <img src="public/inbox.png" alt="Inbox" width="250">
-  <img src="public/compose-email.png" alt="Compose Email" width="250">
-</p>
+---
 
-## 📄 License
+## Security and Cryptographic Algorithms
 
-This project is licensed under the GIT License - see the LICENSE file for details.
+To ensure secure communication, the application integrates several cryptographic mechanisms:
+
+| Algorithm      | Purpose                                | Implementation Details                                   |
+|----------------|----------------------------------------|----------------------------------------------------------|
+| AES-256-CBC    | Symmetric encryption for email content | Implemented using CryptoJS with CBC mode and PKCS7 padding |
+| RSA            | Asymmetric key exchange                | Implemented using CryptoJS (WebCrypto API recommended for production) |
+| HMAC-SHA256    | Message authentication                 | Used to generate and verify digital signatures           |
+| bcrypt         | Password hashing                       | Stores user passwords securely using salted hashing      |
+
+**Encryption Workflow:**
+1. The email content is encrypted using AES-256-CBC.
+2. The AES key is encrypted using the recipient's RSA public key.
+3. An HMAC-SHA256 signature is generated to verify message integrity and sender authenticity.
+
+---
+
+## Security Considerations
+
+Please note that this application is configured for demonstration purposes only. In a production environment, the following enhancements are strongly recommended:
+
+- Utilize a persistent database system for data storage
+- Implement secure cryptographic key management practices
+- Serve all traffic over HTTPS
+- Integrate additional safeguards such as rate limiting and CSRF protection
+
+---
+
+## License
+
+This project is licensed under the MIT License. For more information, please refer to the LICENSE file included in the repository.
